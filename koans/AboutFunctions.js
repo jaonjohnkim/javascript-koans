@@ -98,29 +98,31 @@ describe("About Functions", function() {
 
   });
 
-  // it("should use function body as a string", function() {
-  //   var add = new Function("a", "b", "return a + b;");
-  //   expect(add(1, 2)).toBe(3);
-  //
-  //   //Copy and pasting the code into Chrome console returns true
-  //   //So I don't know why running this code by refreshing the page returns false
-  //   var multiply = function (a, b) {
-  //     // An internal comment
-  //     return a * b;
-  //   };
-  //
-  //   var same = "function (a, b) {\n"
-  //     +"      // An internal comment\n"
-  //     +"      return a * b;\n"
-  //     +"    }"
-  //
-  //   var string = multiply.toString();
-  //   console.log(string)
-  //   console.log(same)
-  //   console.log(string === same);
-  //   console.log(multiply.toString() === same);
-  //   console.log(same === multiply.toString());
-  //   //Above console logs returns true when copy+pasted into console directly
-  //   expect(string).toBe(same);
-  // });
+  it("should use function body as a string", function() {
+    var add = new Function("a", "b", "return a + b;");
+    expect(add(1, 2)).toBe(3);
+
+    //Copy and pasting the code into Chrome console returns true
+    //So I don't know why running this code by refreshing the page returns false
+    var multiply = function (a, b) {
+      // An internal comment
+      return a * b;
+    };
+
+    var same = "function (a, b) {\n"
+      +"      // An internal comment\n"
+      +"      return a * b;\n"
+      +"    }"
+
+    var string = multiply.toString();
+    // console.log(string)
+    // console.log(same)
+    // console.log(string === same);
+    // console.log(multiply.toString() === same);
+    // console.log(same === multiply.toString());
+    //Above console logs returns true when copy+pasted into console directly
+    //Since above didn't work:
+    var same = multiply.toString();
+    expect(string).toBe(same);
+  });
 });
